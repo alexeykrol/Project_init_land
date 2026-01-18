@@ -1,4 +1,4 @@
-# SNAPSHOT — Supabase Bridge Landing Page
+# SNAPSHOT — Claude Code Starter Framework Landing Page
 
 *Framework: Claude Code Starter v2.5.0*
 *Last Updated: 2026-01-17*
@@ -7,22 +7,22 @@
 
 ## 📌 Current Version
 
-**Version:** 0.0.0 (Production-Ready MVP)
+**Version:** 0.1.0 (Content Migration Phase)
 **Phase:** Active Development
-**Status:** Deployed and optimizing
+**Status:** Adapting content for framework landing
 
 ---
 
 ## 🎯 Project Purpose
 
-Bilingual (Russian + English) marketing landing page for **Supabase Bridge** - a WordPress plugin that transforms WordPress into a flexible marketing platform with Supabase integration.
+Bilingual (Russian + English) marketing landing page for **Claude Code Starter Framework** - a meta-framework that transforms Claude Code into a disciplined development partner through structured protocols and context management.
 
 **Key Value Props:**
-- Auto-pilot funnels (connect landing pages → courses automatically)
-- Frictionless entry (Google/Facebook/Magic Link auth)
-- Data clarity (real-time SQL analytics via Supabase)
+- Context on autopilot (metafiles load automatically)
+- 95% token savings (3k vs 100k tokens per session)
+- Discipline through protocols (Cold Start + Completion)
 
-**Meta-Purpose:** Demonstrates AI-assisted development capabilities (built in 3 hours with Claude Code).
+**Meta-Purpose:** Demonstrates the framework's own capabilities by being built with Claude Code and the framework itself.
 
 ---
 
@@ -46,13 +46,13 @@ Bilingual (Russian + English) marketing landing page for **Supabase Bridge** - a
 
 ## 🚀 Recent Achievements
 
+- ✅ Created marketing.md with framework positioning
+- ✅ Migrated landing content to Claude Code Starter theme
+- ✅ Created content-ru.md for easy content editing
+- ✅ Updated all sections (Hero, Problem, Solution, Statistics, etc.)
+- ✅ Changed GitHub links to claude-code-starter repository
 - ✅ Updated framework from v2.2 to v2.5.0
 - ✅ Enabled anonymous bug reporting for framework improvements
-- ✅ Completed visual polish (GitHub link styling, footer improvements)
-- ✅ Added deployment configurations (Vercel/Netlify)
-- ✅ Optimized CTA section spacing and content
-- ✅ Refined solution descriptions and button copy
-- ✅ Security audit passed (0 vulnerabilities)
 
 ---
 
@@ -68,5 +68,5 @@ Bilingual (Russian + English) marketing landing page for **Supabase Bridge** - a
 ## 🔗 Key Links
 
 - **README:** [../README.md](../README.md) (comprehensive documentation)
-- **Repository:** [GitHub](https://github.com/alexeykrol/supabasewordpress-land)
+- **Repository:** [GitHub](https://github.com/alexeykrol/Project_init_land)
 - **Author:** Alexey K. ([@alexeykrol](https://github.com/alexeykrol))

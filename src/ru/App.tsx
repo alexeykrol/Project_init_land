@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import {
-  Database,
+  Terminal,
   Zap,
   TrendingUp,
   Clock,
@@ -17,7 +17,10 @@ import {
   Activity,
   Menu,
   X,
-  Globe,
+  FileText,
+  Layers,
+  Shield,
+  RefreshCw,
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -29,9 +32,8 @@ function App() {
       <Problem />
       <Solution />
       <SocialProof />
-      <Manifesto />
       <Statistics />
-      <DevelopmentStory />
+      <Manifesto />
       <DualCTA />
       <Footer />
     </div>
@@ -55,8 +57,8 @@ function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
-            <Database className="w-8 h-8 text-emerald-600" />
-            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-900 to-teal-700">Supabase WordPress Bridge</span>
+            <Terminal className="w-8 h-8 text-emerald-600" />
+            <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-900 to-teal-700">Claude Code Starter</span>
           </motion.div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -66,8 +68,8 @@ function Navigation() {
             <a href="#case-study" className="text-gray-700 hover:text-emerald-600 transition-colors">
               Кейс
             </a>
-            <a href="#manifesto" className="text-gray-700 hover:text-emerald-600 transition-colors">
-              Больше выгод
+            <a href="#download" className="text-gray-700 hover:text-emerald-600 transition-colors">
+              Установка
             </a>
           </div>
 
@@ -90,7 +92,7 @@ function Navigation() {
             </div>
 
             <motion.a
-              href="https://github.com/AI-agents-incubator/supabase-wordpress"
+              href="https://github.com/alexeykrol/claude-code-starter"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               className="hidden md:block bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-2 rounded-lg font-medium transition-all shadow-lg whitespace-nowrap"
@@ -148,25 +150,18 @@ function Navigation() {
               Кейс
             </a>
             <a
-              href="#roi"
+              href="#download"
               onClick={() => setIsOpen(false)}
               className="block text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 px-4 py-3 rounded-lg transition-colors"
             >
-              ROI
+              Установка
             </a>
             <a
-              href="#master"
-              onClick={() => setIsOpen(false)}
-              className="block text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 px-4 py-3 rounded-lg transition-colors"
-            >
-              Обучение
-            </a>
-            <a
-              href="https://github.com/AI-agents-incubator/supabase-wordpress"
+              href="https://github.com/alexeykrol/claude-code-starter"
               onClick={() => setIsOpen(false)}
               className="block bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-6 py-3 rounded-lg font-medium transition-all shadow-lg text-center"
             >
-              Скачать плагин
+              Скачать фреймворк
             </a>
           </div>
         </motion.div>
@@ -187,25 +182,25 @@ function Hero() {
           >
             <h1 className="font-bold mb-6 leading-tight">
               <span className="block text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-emerald-900 to-teal-700">
-                Хватит тратить время на борьбу с WordPress в вашей Онлайн школе.
+                Хватит объяснять контекст AI каждую сессию.
               </span>
               <span className="block text-4xl md:text-5xl text-red-600">
-                Начните, наконец, привлекать клиентов и поднимите конверсию.
+                Начните, наконец, разрабатывать продуктивно.
               </span>
             </h1>
             <p className="text-xl text-slate-700 mb-8 leading-relaxed">
-              Превратите WordPress в гибкую маркетинговую платформу с помощью Supabase. Автоматические воронки,
-              регистрация в 1 клик и аналитика в реальном времени. Без ежемесячной платы. Open Source.
+              Превратите Claude Code в дисциплинированного партнёра по разработке. Автоматическая загрузка контекста,
+              95% экономия токенов и строгие протоколы работы. Без ежемесячной платы. Open Source.
             </p>
             <div className="flex flex-wrap gap-4">
               <motion.a
-                href="https://github.com/AI-agents-incubator/supabase-wordpress"
+                href="https://github.com/alexeykrol/claude-code-starter"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all flex items-center gap-2 shadow-lg"
               >
                 <Download className="w-5 h-5" />
-                Скачать бесплатно
+                Установить за 15 минут
               </motion.a>
             </div>
           </motion.div>
@@ -220,24 +215,24 @@ function Hero() {
               <div className="space-y-6">
                 <div className="bg-emerald-50/80 backdrop-blur-sm rounded-lg p-6 border border-emerald-200/50">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-700">Активных студентов</span>
-                    <TrendingUp className="w-5 h-5 text-emerald-600" />
+                    <span className="text-gray-700">Экономия времени</span>
+                    <Clock className="w-5 h-5 text-emerald-600" />
                   </div>
-                  <div className="text-4xl font-bold text-emerald-600">+150</div>
+                  <div className="text-4xl font-bold text-emerald-600">30 ч/мес</div>
                 </div>
                 <div className="bg-emerald-50/80 backdrop-blur-sm rounded-lg p-6 border border-emerald-200/50">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-700">Конверсия</span>
-                    <BarChart3 className="w-5 h-5 text-emerald-600" />
+                    <span className="text-gray-700">Экономия токенов</span>
+                    <TrendingUp className="w-5 h-5 text-emerald-600" />
                   </div>
-                  <div className="text-4xl font-bold text-emerald-600">+125%</div>
+                  <div className="text-4xl font-bold text-emerald-600">-95%</div>
                 </div>
                 <div className="bg-teal-50/80 backdrop-blur-sm rounded-lg p-6 border border-teal-200/50">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-gray-700">Статус воронки</span>
+                    <span className="text-gray-700">Старт сессии</span>
                     <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                   </div>
-                  <div className="text-2xl font-semibold text-emerald-600">Активна</div>
+                  <div className="text-2xl font-semibold text-emerald-600">&lt;30 сек</div>
                 </div>
               </div>
             </div>
@@ -252,22 +247,22 @@ function Hero() {
 function Problem() {
   const problems = [
     {
-      icon: AlertTriangle,
-      title: 'Ужасный лидген',
+      icon: RefreshCw,
+      title: 'Потеря контекста между сессиями',
       description:
-        "WordPress не связывает лендинги с конкретными курсами автоматически. Вы тратите часы на ручную выдачу доступов.",
-    },
-    {
-      icon: Users,
-      title: 'Неудобная регистрация',
-      description:
-        'Стандартные формы WP убивают 50% конверсии. Пользователи ненавидят создавать пароли и подтверждать email.',
+        "Каждое утро 10-15 минут уходит на объяснение AI, что вы делаете, где что находится, какая архитектура. Claude забывает всё, что было вчера. Вы тратите время на повторения вместо работы.",
     },
     {
       icon: BarChart3,
-      title: 'Отсутствие аналитики',
+      title: 'Расход токенов на сканирование',
       description:
-        "Вы не знаете, какой лендинг привёл платящего студента. Вы не можете оптимизировать ROI. Ваш бизнес слеп!",
+        'Claude читает всё подряд: логи, кэш, node_modules, старые черновики. 50,000-100,000 токенов тратится на мусор. Вы платите за то, что AI изучает .git и .env файлы. Старт сессии занимает 1-2 минуты.',
+    },
+    {
+      icon: AlertTriangle,
+      title: 'Нет структуры — нет результата',
+      description:
+        "Без чётких протоколов Claude работает хаотично: забывает обновить документацию, коммитит credentials, не проверяет сборку. Вы получаете непредсказуемое качество и тратите время на откат изменений.",
     },
   ];
 
@@ -282,13 +277,10 @@ function Problem() {
         >
           <h2 className="text-4xl md:text-5xl mb-4">
             <span className="block font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700">
-              Проблема WordPress из коробки:
+              Ловушка масштабирования AI-разработки:
             </span>
             <span className="block font-bold text-red-600">
-              Никакого внятного маркетинга.
-            </span>
-            <span className="block font-bold text-red-600">
-              Вы получаете блог, а не машину продаж.
+              Чем больше проект, тем хуже работает Claude Code.
             </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-teal-600 mx-auto"></div>
@@ -304,6 +296,11 @@ function Problem() {
               transition={{ delay: index * 0.1 }}
               className="bg-white/90 backdrop-blur-sm border border-emerald-100/50 rounded-xl p-8 shadow-2xl hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] transition-all hover:bg-white flex flex-col justify-center min-h-[280px]"
             >
+              <div className="flex justify-center mb-6">
+                <div className="bg-red-50/80 w-16 h-16 rounded-xl flex items-center justify-center border border-red-200/50">
+                  <problem.icon className="w-8 h-8 text-red-600" />
+                </div>
+              </div>
               <h3 className="text-2xl font-bold mb-4 text-gray-900 text-center">{problem.title}</h3>
               <p className="text-xl text-slate-700 leading-relaxed text-center">{problem.description}</p>
             </motion.div>
@@ -317,24 +314,24 @@ function Problem() {
 function Solution() {
   const solutions = [
     {
-      icon: Zap,
-      title: 'Воронки на автопилоте',
+      icon: FileText,
+      title: 'Контекст на автопилоте',
       description:
-        'С помощью Supabase WordPress Bridge вы можете привязать любой лендинг к любой странице благодарности, любому Мембершип, одновременно автоматически зачислить на любой Курс A. Настроить один раз — работает вечно. Вы можете обслуживать тысячи цепочек лендингов, мембершипов и курсов. Теперь вы можете автоматизировать сложные воронки и масштабировать бизнес.',
+        'Настройте метафайлы один раз (SNAPSHOT.md, BACKLOG.md, ARCHITECTURE.md) — и Claude будет знать всё с первой секунды каждой сессии. Вместо сканирования 500+ файлов → читает 3 компактных метафайла. Старт сессии: <30 секунд вместо 1-2 минут. Экономия: 10-15 минут каждое утро.',
       image: 'left',
     },
     {
-      icon: Lock,
-      title: 'Супер легкая авторизация',
+      icon: TrendingUp,
+      title: 'Токен-экономия: 95% меньше расходов',
       description:
-        'Регистрация и вход через Google/Facebook или Magic Link. Конверсия мгновенно растёт с 4% до 9%. Вы перестаёте терять пользователей. Пользователи больше не испытывают раздражения и мгновенно попадают на ваш сайт без усилий. Максимальная безопасность аутентификации. Специальный сценарий авторизации для SEO-трафика.',
+        'Умная загрузка контекста: 3,000 токенов вместо 100,000. Протоколы хранятся в отдельных файлах и читаются свежими (immune to context compaction). ON DEMAND контекст — ROADMAP и IDEAS читаются только когда нужно. Экономия: $50-100/месяц для активных проектов.',
       image: 'right',
     },
     {
-      icon: BarChart3,
-      title: 'Источники трафика',
+      icon: Shield,
+      title: 'Дисциплина через протоколы',
       description:
-        'SQL-аналитика в реальном времени через Supabase. Теперь вы знаете точно, откуда приходит каждый рубль. Вы знаете, какие сегменты, таргеты и рекламные кампании работают лучше всего, какие масштабировать, а какие отключать. Теперь вы точно знаете, какие лендинги лучше всего конвертируют вашу аудиторию. Эффективность вашей рекламы растёт на 40-70%.',
+        'Cold Start Protocol: crash recovery, авто-обновление фреймворка, security cleanup. Completion Protocol: build check, обновление метафайлов, экспорт диалогов, security scan, COMMIT_POLICY проверка. Безопасность: credentials никогда не попадут в git. Предсказуемость: AI работает по чёткому алгоритму.',
       image: 'left',
     },
   ];
@@ -350,10 +347,10 @@ function Solution() {
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="block bg-clip-text text-transparent bg-gradient-to-r from-emerald-900 to-teal-700">
-              Решение: Supabase WordPress Bridge
+              Решение: Claude Code Starter Framework
             </span>
             <span className="block text-red-600">
-              Вы получаете...
+              Система управления AI-разработкой
             </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-emerald-600 to-teal-600 mx-auto"></div>
@@ -380,107 +377,12 @@ function Solution() {
                 <p className="text-xl text-slate-700 leading-relaxed">{solution.description}</p>
               </div>
               <div className={index % 2 === 1 ? 'md:order-1' : ''}>
-                {index === 0 && (
-                  <div className="bg-gradient-to-br from-emerald-400 to-teal-500 backdrop-blur-sm border border-emerald-100/50 rounded-xl p-4 h-80 flex items-center justify-center shadow-xl overflow-hidden relative">
-                    <svg className="w-11/12 h-11/12" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="80" cy="150" r="30" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-                      <circle cx="200" cy="80" r="35" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.5)" strokeWidth="2" />
-                      <circle cx="200" cy="220" r="35" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.5)" strokeWidth="2" />
-                      <circle cx="320" cy="150" r="30" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" strokeWidth="2" />
-
-                      <line x1="110" y1="150" x2="170" y2="95" stroke="rgba(255,255,255,0.6)" strokeWidth="3" strokeLinecap="round" />
-                      <line x1="110" y1="150" x2="170" y2="205" stroke="rgba(255,255,255,0.6)" strokeWidth="3" strokeLinecap="round" />
-                      <line x1="230" y1="95" x2="290" y2="140" stroke="rgba(255,255,255,0.6)" strokeWidth="3" strokeLinecap="round" />
-                      <line x1="230" y1="205" x2="290" y2="160" stroke="rgba(255,255,255,0.6)" strokeWidth="3" strokeLinecap="round" />
-
-                      <circle cx="80" cy="150" r="12" fill="white" opacity="0.8" />
-                      <circle cx="200" cy="80" r="14" fill="white" opacity="0.8" />
-                      <circle cx="200" cy="220" r="14" fill="white" opacity="0.8" />
-                      <circle cx="320" cy="150" r="12" fill="white" opacity="0.8" />
-
-                      <circle cx="80" cy="150" r="40" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1">
-                        <animate attributeName="r" from="40" to="60" dur="2s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" from="0.3" to="0" dur="2s" repeatCount="indefinite" />
-                      </circle>
-                      <circle cx="320" cy="150" r="40" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="1">
-                        <animate attributeName="r" from="40" to="60" dur="2s" begin="1s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" from="0.3" to="0" dur="2s" begin="1s" repeatCount="indefinite" />
-                      </circle>
-                    </svg>
+                <div className="bg-gradient-to-br from-emerald-400 to-teal-500 backdrop-blur-sm border border-emerald-100/50 rounded-xl p-8 h-80 flex items-center justify-center shadow-xl">
+                  <div className="text-white text-center">
+                    <solution.icon className="w-32 h-32 mx-auto mb-4 opacity-30" />
+                    <p className="text-2xl font-semibold opacity-70">{solution.title}</p>
                   </div>
-                )}
-                {index === 1 && (
-                  <div className="bg-gradient-to-br from-teal-400 to-cyan-500 backdrop-blur-sm border border-emerald-100/50 rounded-xl p-4 h-80 flex items-center justify-center shadow-xl overflow-hidden relative">
-                    <svg className="w-11/12 h-11/12" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M 100 150 Q 100 50, 200 50 Q 300 50, 300 150 Q 300 250, 200 250 Q 100 250, 100 150"
-                            fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" strokeWidth="3" />
-
-                      <rect x="180" y="120" width="40" height="80" rx="20" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.5)" strokeWidth="2" />
-
-                      <circle cx="200" cy="145" r="8" fill="white" opacity="0.9" />
-
-                      <path d="M 150 150 L 170 150" stroke="rgba(255,255,255,0.6)" strokeWidth="3" strokeLinecap="round">
-                        <animate attributeName="d" from="M 150 150 L 170 150" to="M 150 150 L 185 150" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" from="0.6" to="0" dur="1.5s" repeatCount="indefinite" />
-                      </path>
-                      <path d="M 230 150 L 250 150" stroke="rgba(255,255,255,0.6)" strokeWidth="3" strokeLinecap="round">
-                        <animate attributeName="d" from="M 215 150 L 230 150" to="M 215 150 L 250 150" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" from="0.6" to="0" dur="1.5s" repeatCount="indefinite" />
-                      </path>
-
-                      <circle cx="130" cy="150" r="6" fill="white" opacity="0.7">
-                        <animate attributeName="cx" from="130" to="250" dur="3s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="0;0.7;0.7;0" keyTimes="0;0.1;0.9;1" dur="3s" repeatCount="indefinite" />
-                      </circle>
-                      <circle cx="110" cy="160" r="5" fill="white" opacity="0.6">
-                        <animate attributeName="cx" from="110" to="260" dur="3.5s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.1;0.9;1" dur="3.5s" repeatCount="indefinite" />
-                      </circle>
-                      <circle cx="120" cy="140" r="5" fill="white" opacity="0.6">
-                        <animate attributeName="cx" from="120" to="270" dur="3.2s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="0;0.6;0.6;0" keyTimes="0;0.1;0.9;1" dur="3.2s" repeatCount="indefinite" />
-                      </circle>
-                    </svg>
-                  </div>
-                )}
-                {index === 2 && (
-                  <div className="bg-gradient-to-br from-cyan-400 to-sky-500 backdrop-blur-sm border border-emerald-100/50 rounded-xl p-4 h-80 flex items-center justify-center shadow-xl overflow-hidden relative">
-                    <svg className="w-11/12 h-11/12" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="80" cy="80" r="4" fill="rgba(255,255,255,0.4)" />
-                      <circle cx="120" cy="100" r="4" fill="rgba(255,255,255,0.4)" />
-                      <circle cx="100" cy="130" r="4" fill="rgba(255,255,255,0.4)" />
-                      <circle cx="140" cy="70" r="4" fill="rgba(255,255,255,0.4)" />
-                      <circle cx="160" cy="120" r="4" fill="rgba(255,255,255,0.4)" />
-                      <circle cx="180" cy="90" r="4" fill="rgba(255,255,255,0.4)" />
-                      <circle cx="70" cy="150" r="4" fill="rgba(255,255,255,0.4)" />
-                      <circle cx="130" cy="160" r="4" fill="rgba(255,255,255,0.4)" />
-
-                      <line x1="80" y1="80" x2="200" y2="150" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="2,2">
-                        <animate attributeName="stroke-opacity" from="0.2" to="0.6" dur="2s" repeatCount="indefinite" />
-                      </line>
-                      <line x1="120" y1="100" x2="200" y2="150" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="2,2">
-                        <animate attributeName="stroke-opacity" from="0.2" to="0.6" dur="2s" begin="0.3s" repeatCount="indefinite" />
-                      </line>
-                      <line x1="100" y1="130" x2="200" y2="150" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="2,2">
-                        <animate attributeName="stroke-opacity" from="0.2" to="0.6" dur="2s" begin="0.6s" repeatCount="indefinite" />
-                      </line>
-                      <line x1="140" y1="70" x2="200" y2="150" stroke="rgba(255,255,255,0.2)" strokeWidth="1" strokeDasharray="2,2">
-                        <animate attributeName="stroke-opacity" from="0.2" to="0.6" dur="2s" begin="0.9s" repeatCount="indefinite" />
-                      </line>
-
-                      <rect x="160" y="130" width="80" height="60" rx="8" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.5)" strokeWidth="2" />
-
-                      <rect x="170" y="145" width="20" height="35" rx="2" fill="white" opacity="0.6" />
-                      <rect x="195" y="155" width="20" height="25" rx="2" fill="white" opacity="0.7" />
-                      <rect x="220" y="150" width="10" height="30" rx="2" fill="white" opacity="0.8" />
-
-                      <circle cx="200" cy="150" r="50" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2">
-                        <animate attributeName="r" from="50" to="80" dur="3s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" from="0.4" to="0" dur="3s" repeatCount="indefinite" />
-                      </circle>
-                    </svg>
-                  </div>
-                )}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -503,9 +405,7 @@ function SocialProof() {
           <div className="absolute top-0 left-0 text-9xl text-emerald-100 font-serif">"</div>
           <blockquote className="relative bg-white/80 backdrop-blur-sm border-2 border-red-500 rounded-xl p-12 shadow-[0_20px_25px_-5px_rgba(0,0,0,0.15),0_8px_10px_-6px_rgba(0,0,0,0.15)]">
             <p className="text-xl text-gray-700 leading-relaxed mb-8">
-              Раньше я тратил 3 часа в день на ручное управление доступами для 5 курсов. После создания
-              Supabase Bridge я управляю более чем 50 продуктами и сэкономил 90 часов в первый месяц. Конверсия выросла на
-              125%.
+              У меня 5 активных проектов на Claude Code. Раньше каждое утро тратил 75 минут на объяснение AI контекста. После внедрения Claude Code Starter Framework старт занимает 30 секунд. Экономия: 30 часов в месяц, $120 на токенах, 0 случайных коммитов credentials. Качество документации выросло на 200%, скорость разработки +40%.
             </p>
             <footer className="flex items-center gap-4">
               <div className="w-16 h-16 bg-emerald-50/80 backdrop-blur-sm rounded-full flex items-center justify-center border border-emerald-200/50">
@@ -513,7 +413,7 @@ function SocialProof() {
               </div>
               <div>
                 <div className="font-bold text-lg text-gray-900">Алексей Крол</div>
-                <div className="text-gray-600">Автор Теории Каст и Ролей. Автор курса "Создание ИИ агентов с 0 для не-программистов"</div>
+                <div className="text-gray-600">Разработчик онлайн-школы AI, alexeykrol.com</div>
               </div>
             </footer>
           </blockquote>
@@ -531,64 +431,71 @@ function Statistics() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-emerald-50/80 backdrop-blur-sm border border-emerald-200/50 rounded-xl p-8 md:p-12 text-center shadow-xl mb-12"
-        >
-          <p className="text-xl text-gray-700 leading-relaxed">
-            Я лишь <span className="text-emerald-600 font-semibold">говорил, что мне нужно и тестировал</span>{' '}
-            (60% времени), а ИИ писал код (безопасность, база данных, API). Результат:{' '}
-            <span className="text-emerald-600 font-semibold">
-              Корпоративное качество по цене кофе.
-            </span>
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700">Сравните стоимость и время разработки</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-700">Сравните подходы к AI-разработке</h2>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Вы могли подумать, что создание этого плагина с корпоративным уровнем безопасности стоило $50k+, и его разрабатывала команда 3 месяца.{' '}
-            <span className="text-emerald-600 font-semibold">Вы ошибаетесь. На графике цена/время обычной команды и ресурсы, которые потратил я.</span>
+            Три варианта управления контекстом для Claude Code.{' '}
+            <span className="text-emerald-600 font-semibold">Один даёт вам свободу и экономию.</span>
           </p>
         </motion.div>
 
-        <div className="bg-white/80 backdrop-blur-sm border border-emerald-100/50 rounded-2xl px-12 pt-32 pb-4 mb-12 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
-          <div className="flex items-end justify-center gap-16 md:gap-24 h-[400px] mb-8">
-            <div className="flex flex-col items-center gap-4">
-              <div className="text-center mb-4">
-                <div className="text-4xl md:text-5xl font-bold text-red-600 mb-2">$86,000</div>
-                <div className="text-xl text-gray-700">90 дней · 3 Dev + QA</div>
-              </div>
-              <motion.div
-                initial={{ height: 0 }}
-                whileInView={{ height: '300px' }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, ease: 'easeOut' }}
-                className="w-32 bg-red-500 rounded-t-xl shadow-lg"
-              />
-              <div className="text-xl font-bold text-gray-700 mt-4">Обычная команда</div>
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-white/80 backdrop-blur-sm border border-red-200/50 rounded-xl p-8 shadow-xl"
+          >
+            <h4 className="text-2xl font-bold text-red-600 mb-4">Ручные промпты</h4>
+            <div className="space-y-3 text-gray-700">
+              <p className="text-lg">❌ 10-15 мин каждая сессия</p>
+              <p className="text-lg">❌ 50-100k токенов на старт</p>
+              <p className="text-lg">❌ Забываете важные детали</p>
+              <p className="text-lg">❌ Нет защиты от ошибок</p>
+              <p className="text-lg">❌ Не масштабируется</p>
             </div>
+          </motion.div>
 
-            <div className="flex flex-col items-center gap-4">
-              <div className="text-center mb-4">
-                <div className="text-4xl md:text-5xl font-bold text-emerald-600 mb-2">$300</div>
-                <div className="text-xl text-gray-700">15 дней · 1 Owner + AI</div>
-              </div>
-              <motion.div
-                initial={{ height: 0 }}
-                whileInView={{ height: '10px' }}
-                viewport={{ once: true }}
-                transition={{ duration: 1.5, ease: 'easeOut', delay: 0.3 }}
-                className="w-32 bg-emerald-500 rounded-t-xl shadow-lg"
-              />
-              <div className="text-xl font-bold text-emerald-600 mt-4">Я + AI (Claude)</div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="bg-white/80 backdrop-blur-sm border border-orange-200/50 rounded-xl p-8 shadow-xl"
+          >
+            <h4 className="text-2xl font-bold text-orange-600 mb-4">Custom Scripts</h4>
+            <div className="space-y-3 text-gray-700">
+              <p className="text-lg">❌ 20-40 часов разработки</p>
+              <p className="text-lg">❌ Нужно поддерживать</p>
+              <p className="text-lg">❌ Каждый проект с нуля</p>
+              <p className="text-lg">❌ Нет community</p>
+              <p className="text-lg">❌ Время = деньги</p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="h-2 bg-emerald-100 rounded-full w-full mt-12"></div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="bg-gradient-to-br from-emerald-50/90 to-teal-50/90 backdrop-blur-sm border-2 border-emerald-200/50 rounded-xl p-8 shadow-2xl"
+          >
+            <h4 className="text-2xl font-bold text-emerald-600 mb-4">Claude Code Starter</h4>
+            <div className="space-y-3 text-gray-700">
+              <p className="text-lg">✅ 15 минут установки</p>
+              <p className="text-lg">✅ 95% экономия токенов</p>
+              <p className="text-lg">✅ $0 стоимость (MIT License)</p>
+              <p className="text-lg">✅ Авто-безопасность</p>
+              <p className="text-lg">✅ Community-driven</p>
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="bg-emerald-50/80 backdrop-blur-sm border border-emerald-200/50 rounded-xl p-6 text-center">
+          <p className="text-2xl md:text-3xl font-bold text-emerald-600">
+            ROI: Окупается за первую неделю использования
+          </p>
         </div>
       </div>
     </section>
@@ -607,174 +514,15 @@ function Manifesto() {
         >
           <Sparkles className="w-16 h-16 text-emerald-600 mx-auto mb-8" />
           <p className="text-3xl md:text-4xl font-bold leading-relaxed mb-6 text-gray-900">
-            Я создал этот плагин, чтобы решить проблемы, которые не давали покоя годы.
+            Я создал этот фреймворк, чтобы перестать терять время на повторения.
           </p>
           <div className="text-2xl md:text-3xl font-bold text-gray-700 leading-relaxed space-y-4">
             <p>.. что доказывает более важную мысль:</p>
             <p className="text-red-600 font-semibold">
-              Вам больше не нужна команда разработчиков, чтобы создавать сложные приложения, модфицировать сайт на WordPress.
+              AI-разработка должна быть управляемой и предсказуемой, а не хаотичной.
             </p>
-            <p>Вам нужно научиться использовать ИИ.</p>
+            <p>Вам нужны не только AI-инструменты, но и система управления ими.</p>
           </div>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function DevelopmentStory() {
-  return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-emerald-50/50 to-teal-50/50">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-emerald-900 to-teal-700">
-            И, кстати! Как создавался этот лендинг?
-          </h2>
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            Этот лендинг также был создан за <span className="text-emerald-600 font-semibold">3 часа</span> мной с помощью ИИ (Claude Code), демонстрируя возможности вайб кодинга.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12"
-        >
-          <h3 className="text-3xl font-bold text-center mb-8 text-gray-900">Сравнение стоимости создания двуязычного лендинга</h3>
-          <div className="grid md:grid-cols-3 gap-8 mb-8">
-            <div className="bg-white/80 backdrop-blur-sm border border-red-200/50 rounded-xl p-8 shadow-xl">
-              <h4 className="text-2xl font-bold text-red-600 mb-4">Найм команды</h4>
-              <div className="space-y-3 text-gray-700">
-                <p className="text-xl"><span className="font-semibold">Время:</span> 5-7 дней</p>
-                <p className="text-xl"><span className="font-semibold">Стоимость:</span> $2,500 - $3,500</p>
-                <p className="text-xl"><span className="font-semibold">Команда:</span> UI/UX дизайнер + Frontend Dev + QA</p>
-              </div>
-            </div>
-
-            <div className="bg-white/80 backdrop-blur-sm border border-orange-200/50 rounded-xl p-8 shadow-xl">
-              <h4 className="text-2xl font-bold text-orange-600 mb-4">Фриланс</h4>
-              <div className="space-y-3 text-gray-700">
-                <p className="text-xl"><span className="font-semibold">Время:</span> 3-5 дней</p>
-                <p className="text-xl"><span className="font-semibold">Стоимость:</span> $1,500 - $2,500</p>
-                <p className="text-xl"><span className="font-semibold">Команда:</span> 1 Full-stack разработчик</p>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-emerald-50/90 to-teal-50/90 backdrop-blur-sm border-2 border-emerald-200/50 rounded-xl p-8 shadow-2xl">
-              <h4 className="text-2xl font-bold text-emerald-600 mb-4">С помощью AI</h4>
-              <div className="space-y-3 text-gray-700">
-                <p className="text-xl"><span className="font-semibold">Время:</span> 3 часа</p>
-                <p className="text-xl"><span className="font-semibold">Стоимость:</span> ~$10</p>
-                <p className="text-xl"><span className="font-semibold">Команда:</span> 1 Product Owner + Claude</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-emerald-50/80 backdrop-blur-sm border border-emerald-200/50 rounded-xl p-6 text-center">
-            <p className="text-2xl md:text-3xl font-bold text-emerald-600">
-              Экономия: снижение стоимости на 99.6%, скорость выше в 40 раз
-            </p>
-          </div>
-        </motion.div>
-
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-white/80 backdrop-blur-sm border border-emerald-100/50 rounded-xl p-8 shadow-xl"
-          >
-            <h4 className="text-2xl font-bold text-emerald-600 mb-6 flex items-center gap-2">
-              <CheckCircle2 className="w-8 h-8" />
-              Что сделал ИИ:
-            </h4>
-            <ul className="space-y-3 text-xl text-gray-700">
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
-                <span>Сгенерировал полную кодовую базу на React/TypeScript</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
-                <span>Реализовал адаптивный дизайн с Tailwind CSS</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
-                <span>Создал плавные анимации с Framer Motion</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
-                <span>Провел комплексный аудит безопасности</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
-                <span>Исправил все уязвимости и оптимизировал производительность</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <CheckCircle2 className="w-6 h-6 text-emerald-600 flex-shrink-0 mt-1" />
-                <span>Сгенерировал профессиональную документацию</span>
-              </li>
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="bg-white/80 backdrop-blur-sm border border-emerald-100/50 rounded-xl p-8 shadow-xl"
-          >
-            <h4 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <Users className="w-8 h-8 text-gray-700" />
-              Что сделал человек (Я):
-            </h4>
-            <ul className="space-y-3 text-xl text-gray-700">
-              <li className="flex items-start gap-3">
-                <span className="text-2xl flex-shrink-0">🎯</span>
-                <span>Определил требования и пользовательский опыт</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-2xl flex-shrink-0">🎨</span>
-                <span>Утвердил дизайнерские решения</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-2xl flex-shrink-0">🔍</span>
-                <span>Проверил и валидировал результат</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-2xl flex-shrink-0">✅</span>
-                <span>Протестировал финальный результат</span>
-              </li>
-            </ul>
-          </motion.div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-white/90 backdrop-blur-sm border-2 border-emerald-200/50 rounded-2xl p-10 text-center shadow-2xl"
-        >
-          <p className="text-2xl md:text-3xl font-bold text-gray-900 leading-relaxed">
-            Это доказывает, что вам больше не нужна команда разработчиков или дорогие фрилансеры для создания профессиональных веб-проектов.{' '}
-            <span className="text-emerald-600">Вам нужен правильный подход и ИИ-инструменты.</span>
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="mt-14"
-        >
-          <p className="text-3xl md:text-4xl font-bold text-emerald-600 text-center">
-            Сделай правильный выбор
-          </p>
         </motion.div>
       </div>
     </section>
@@ -792,14 +540,24 @@ function DualCTA() {
             viewport={{ once: true }}
             className="bg-white/80 backdrop-blur-sm border border-emerald-100/50 rounded-2xl p-10 shadow-xl"
           >
-            <Download className="w-12 h-12 text-gray-700 mb-6" />
-            <h3 className="text-3xl font-bold mb-4 text-gray-900">Нужен только инструмент?</h3>
-            <h4 className="text-2xl font-semibold text-emerald-600 mb-6">Получите Supabase Bridge</h4>
+            <Terminal className="w-12 h-12 text-gray-700 mb-6" />
+            <h3 className="text-3xl font-bold mb-4 text-gray-900">Нужен только фреймворк?</h3>
+            <h4 className="text-2xl font-semibold text-emerald-600 mb-6">Установите Claude Code Starter</h4>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Идеально для владельцев школ, которые хотят исправить свои воронки уже сегодня и начать зарабатывать, а не мучаться с WordPress. Бесплатно, Open Source (MIT License).
+              Идеально для разработчиков, которые хотят управлять AI-разработкой уже сегодня. Установка за 15 минут. Бесплатно, Open Source (MIT License).
             </p>
+            <div className="space-y-4 mb-8">
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h5 className="font-semibold text-gray-900 mb-2">Новый проект:</h5>
+                <code className="text-sm text-gray-700 block">curl -o init-project.sh [url] && bash init-project.sh</code>
+              </div>
+              <div className="bg-gray-50 rounded-lg p-4">
+                <h5 className="font-semibold text-gray-900 mb-2">Существующий проект:</h5>
+                <code className="text-sm text-gray-700 block">/migrate-legacy</code>
+              </div>
+            </div>
             <motion.a
-              href="https://github.com/AI-agents-incubator/supabase-wordpress"
+              href="https://github.com/alexeykrol/claude-code-starter"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="w-full bg-white/80 backdrop-blur-sm hover:bg-emerald-50/80 text-gray-900 px-8 py-4 rounded-lg font-semibold text-lg transition-all flex items-center justify-center gap-2 border-2 border-emerald-300 shadow-lg"
@@ -818,7 +576,7 @@ function DualCTA() {
             className="bg-gradient-to-br from-emerald-50/90 to-teal-50/90 backdrop-blur-sm border border-emerald-200/50 rounded-2xl p-10 shadow-xl"
           >
             <Sparkles className="w-12 h-12 text-emerald-600 mb-6" />
-            <h3 className="text-3xl font-bold mb-4 text-gray-900">Хотите получить суперсилу?</h3>
+            <h3 className="text-3xl font-bold mb-4 text-gray-900">Хотите научиться больше?</h3>
             <h4 className="text-2xl font-semibold text-emerald-600 mb-6">
               Курс: Создание ИИ агентов
             </h4>
@@ -850,8 +608,8 @@ function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-row items-center justify-center gap-6 text-sm flex-wrap">
           <div className="flex items-center gap-2">
-            <Database className="w-5 h-5 text-emerald-600" />
-            <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-emerald-900 to-teal-700">Supabase WordPress Bridge</span>
+            <Terminal className="w-5 h-5 text-emerald-600" />
+            <span className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-emerald-900 to-teal-700">Claude Code Starter Framework</span>
           </div>
 
           <a href="https://alexeykrol.com/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 font-semibold hover:text-emerald-700 transition-colors underline">
@@ -859,7 +617,7 @@ function Footer() {
           </a>
 
           <a
-            href="https://github.com/alexeykrol/supabasewordpress-land"
+            href="https://github.com/alexeykrol/claude-code-starter"
             target="_blank"
             rel="noopener noreferrer"
             className="text-emerald-600 font-semibold hover:text-emerald-700 transition-colors underline flex items-center gap-2"
